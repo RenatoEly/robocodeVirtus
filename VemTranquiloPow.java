@@ -21,9 +21,9 @@ public class VemTranquiloPow extends AdvancedRobot {
 	}
 	
 	public void onScannedRobot(ScannedRobotEvent e) {
-		// posiciona o radar para ultima posição do inimigo
+		// posiciona o radar para ultima posiï¿½ï¿½o do inimigo
 		setTurnRadarLeft(getRadarTurnRemaining());
-		// posicionando tanque em relação ao inimigo
+		// posicionando tanque em relaï¿½ï¿½o ao inimigo
 		anguloPosicionamento = e.getBearing() + 90 - 30 * direcao;
 		setTurnRight(anguloPosicionamento);
 		atirar(e);
@@ -35,7 +35,7 @@ public class VemTranquiloPow extends AdvancedRobot {
 	}
 	
 	private void esquivarTiro(ScannedRobotEvent e) {
-		// variação de energia do inimigo
+		// variaï¿½ï¿½o de energia do inimigo
 		double deltaEnergia = energiaInimigo-e.getEnergy();
 		// desvia se um tiro foi disparado
 		if (deltaEnergia>0 && deltaEnergia<=3) {
@@ -49,10 +49,12 @@ public class VemTranquiloPow extends AdvancedRobot {
 		// distancia limite do inimigo
 		if(e.getDistance() < 150 ){
 			// determinando angulo de ataque do inimigo
-			if(Math.round(e.getBearing()) >= -60) 
+			if(Math.round(e.getBearing()) >= -60) {
 				setBack(75);
-			else
-				setAhead(75);	
+			}
+			else{
+				setAhead(75);
+			}
 		}
 	}
 	
